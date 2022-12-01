@@ -10,7 +10,7 @@
     <meta content="" name="author" />
 
     {{--    Favicon Icon  --}}
-    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('/')}}backend/uploads/logo/laravel.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('/')}}uploads/logo/laravel.png">
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <link href="{{ asset('/')}}backend/assets/css/vendor.min.css" rel="stylesheet" />
@@ -22,6 +22,8 @@
     <link href="{{ asset('/')}}backend/assets/plugins/jvectormap-next/jquery-jvectormap.css" rel="stylesheet" />
     <link href="{{ asset('/')}}backend/assets/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.css" rel="stylesheet" />
 {{--    <link href="{{ asset('/')}}backend/assets/plugins/gritter/css/jquery.gritter.css" rel="stylesheet" />--}}
+
+
 
 </head>
 <body>
@@ -44,7 +46,7 @@
     <div id="header" class="app-header">
 
         <div class="navbar-header">
-            <a href="index.html" class="navbar-brand"><span class=""></span> <b class="mx-2 text-red-500">Laravel</b> Featues </a>
+            <a href="{{ route('dashboard') }}" class="navbar-brand"><span class=""></span> <b class="mx-2 text-red-500">Laravel</b> Featues </a>
             <button type="button" class="navbar-mobile-toggler" data-toggle="app-sidebar-mobile">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -89,16 +91,16 @@
             </div>
             <div class="navbar-item navbar-user dropdown">
                 <a href="#" class="navbar-link dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown">
-                    <img src="{{ asset('/')}}backend/assets/img/user/user-13.jpg" alt="" />
+                    <img src="{{ Auth::user()->image == null ? url('uploads/no_image.jpg') : asset(Auth::user()->image)  }}" alt="profile image" />
                     <span>
                         <span class="d-none d-md-inline">{{ Auth::user()->name }}</span>
                         <b class="caret"></b>
                     </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end me-1">
-                    <a href="javascript:;" class="dropdown-item">Edit Profile</a>
+                    <a href="{{ route('profile', Auth::user()->id) }}" class="dropdown-item">Edit Profile</a>
                     <div class="dropdown-divider"></div>
-                    <a href="javascript:;" class="dropdown-item">Change Password</a>
+                    <a href="{{ route('password', Auth::user()->id) }}" class="dropdown-item">Change Password</a>
                     <div class="dropdown-divider"></div>
                     <a href="" onclick="event.preventDefault(); document.getElementById('admin-logout').submit();" class="dropdown-item">Log Out</a>
                     <form action="{{ route('admin.logout') }}" method="POST" id="admin-logout">
@@ -120,7 +122,7 @@
                     <a href="javascript:;" class="menu-profile-link" data-toggle="app-sidebar-profile" data-target="#appSidebarProfileMenu">
                         <div class="menu-profile-cover with-shadow"></div>
                         <div class="menu-profile-image">
-                            <img src="{{ asset('/')}}backend/assets/img/user/user-13.jpg" alt="" />
+                            <img src="{{ Auth::user()->image == null ? url('uploads/no_image.jpg') : asset(Auth::user()->image)  }}" alt="" />
                         </div>
                         <div class="menu-profile-info">
                             <div class="d-flex align-items-center">
@@ -423,8 +425,13 @@
 		ga('create', 'UA-53034621-1', 'auto');
 		ga('send', 'pageview');
 
-	</script>
+</script>
+
+
+
 <script src="{{ asset('/')}}backend/assets/js/rocket-loader.min.js" data-cf-settings="9c13ede09614428406f7f52d-|49" defer=""></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194" integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw==" data-cf-beacon='{"rayId":"7145748af9cc78c1","version":"2021.12.0","r":1,"token":"4db8c6ef997743fda032d4f73cfeff63","si":100}' crossorigin="anonymous"></script>
+
+
 </body>
 
 

@@ -10,7 +10,7 @@
     <meta content="" name="author" />
 
     {{--    Favicon Icon  --}}
-    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('/')}}backend/uploads/logo/laravel.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('/')}}uploads/logo/laravel.png">
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <link href="{{ asset('/')}}backend/assets/css/vendor.min.css" rel="stylesheet" />
@@ -18,8 +18,11 @@
 
     <link href="{{ asset('/')}}backend/assets/css/font-awesome.min.css" rel="stylesheet" />
 
+{{--    <script type="text/javascript"> window.history.forward(); function noBack() { window.history.forward(); } </script>--}}
+
 </head>
-<body class='pace-top'>
+<body class='pace-top' >
+{{--<body  onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="">--}}
 
 <div id="loader" class="app-loader">
     <span class="spinner"></span>
@@ -41,7 +44,7 @@
             <div class="login-header">
                 <div class="brand">
                     <div class="d-flex align-items-center">
-                        <img style=" margin-right: 5px;" src="{{asset('/')}}backend/uploads/logo/laravel.png" height="32px" width="32px" alt="" ><b class="mx-2">Laravel </b> Features
+                        <img style=" margin-right: 5px;" src="{{asset('/')}}uploads/logo/laravel.png" height="36px" width="36px" alt="" ><b class="mx-2">Laravel </b> Features
                     </div>
                     <small>Develop By Shykot Hasan Shourav</small>
 
@@ -76,12 +79,13 @@
                         <label class="form-check-label fs-13px text-gray-500" for="rememberMe">
                             Remember Me
                         </label>
+                        <a href="{{ route('forget.password.get') }}" class="mx-3 float-end">Forget Password?</a>
                     </div>
                     <div class="mb-20px">
                         <button type="submit" class="btn btn-outline-danger d-block w-100 h-45px btn-lg">Log In</button>
                     </div>
-                    <div class="text-gray-500">
-
+                    <div class="text-blue-500">
+                        <a href="">Forget Password?</a>
                     </div>
                 </form>
             </div>
@@ -113,6 +117,7 @@
 <script src="{{ asset('/')}}backend/assets/js/app.min.js" type="a0616a96a228706fff8d35bc-text/javascript"></script>
 
 @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
+
 
 <script src="{{ asset('/')}}backend/assets/js/demo/login-v2.demo.js" type="a0616a96a228706fff8d35bc-text/javascript"></script>
 
