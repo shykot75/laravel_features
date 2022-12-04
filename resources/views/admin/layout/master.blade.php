@@ -23,7 +23,7 @@
     <link href="{{ asset('/')}}backend/assets/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.css" rel="stylesheet" />
 {{--    <link href="{{ asset('/')}}backend/assets/plugins/gritter/css/jquery.gritter.css" rel="stylesheet" />--}}
 
-
+    @yield('extra-css')
 
 </head>
 <body>
@@ -157,51 +157,25 @@
                     <div class="menu-divider m-0"></div>
                 </div>
                 <div class="menu-header">Navigation</div>
-                <div class="menu-item has-sub active">
-                    <a href="javascript:;" class="menu-link">
+                <div class="menu-item has-sub {{ Request::routeIs('dashboard') ? 'active' : '' }}">
+                    <a href="{{ route('dashboard') }}" class="menu-link">
                         <div class="menu-icon">
-                            <i class="fa fa-sitemap"></i>
+                            <i class="fa fa-home"></i>
                         </div>
                         <div class="menu-text">Dashboard</div>
-                        <div class="menu-caret"></div>
+
                     </a>
-                    <div class="menu-submenu">
-                        <div class="menu-item active">
-                            <a href="index.html" class="menu-link"><div class="menu-text">Dashboard v1</div></a>
-                        </div>
-                        <div class="menu-item">
-                            <a href="index_v2.html" class="menu-link"><div class="menu-text">Dashboard v2</div></a>
-                        </div>
-                        <div class="menu-item">
-                            <a href="index_v3.html" class="menu-link"><div class="menu-text">Dashboard v3</div></a>
-                        </div>
-                    </div>
+
                 </div>
-                <div class="menu-item has-sub">
-                    <a href="javascript:;" class="menu-link">
+                <div class="menu-item has-sub {{ Request::routeIs('send.gmail') ? 'active' : '' }}">
+                    <a href="{{ route('send.gmail') }}" class="menu-link">
                         <div class="menu-icon">
-                            <i class="fa fa-hdd"></i>
+                            <i class="fa fa-envelope-o"></i>
                         </div>
-                        <div class="menu-text">Email</div>
-                        <div class="menu-badge">10</div>
+                        <div class="menu-text">Send Gmail</div>
+                        <div class="menu-badge">{{ mail_count() }}</div>
                     </a>
-                    <div class="menu-submenu">
-                        <div class="menu-item">
-                            <a href="email_inbox.html" class="menu-link">
-                                <div class="menu-text">Inbox</div>
-                            </a>
-                        </div>
-                        <div class="menu-item">
-                            <a href="email_compose.html" class="menu-link">
-                                <div class="menu-text">Compose</div>
-                            </a>
-                        </div>
-                        <div class="menu-item">
-                            <a href="email_detail.html" class="menu-link">
-                                <div class="menu-text">Detail</div>
-                            </a>
-                        </div>
-                    </div>
+
                 </div>
                 <div class="menu-item">
                     <a href="widget.html" class="menu-link">
@@ -352,9 +326,6 @@
                 </div>
 
 
-
-
-
                 <div class="menu-item d-flex">
                     <a href="javascript:;" class="app-sidebar-minify-btn ms-auto" data-toggle="app-sidebar-minify"><i class="fa fa-angle-double-left"></i></a>
                 </div>
@@ -367,15 +338,11 @@
     <div class="app-sidebar-bg"></div>
     <div class="app-sidebar-mobile-backdrop"><a href="#" data-dismiss="app-sidebar-mobile" class="stretched-link"></a></div>
 
-
     <div id="content" class="app-content">
 
        @yield('admin-content')
 
     </div>
-
-
-
 
 
     <a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top" data-toggle="scroll-to-top"><i class="fa fa-angle-up"></i></a>
@@ -386,6 +353,7 @@
 <script src="{{ asset('/')}}backend/assets/js/vendor.min.js" type="9c13ede09614428406f7f52d-text/javascript"></script>
 <script src="{{ asset('/')}}backend/assets/js/app.min.js" type="9c13ede09614428406f7f52d-text/javascript"></script>
 
+@yield('extra-js')
 
 {{--<script src="{{ asset('/')}}backend/assets/plugins/gritter/js/jquery.gritter.js" type="9c13ede09614428406f7f52d-text/javascript"></script>--}}
 <script src="{{ asset('/')}}backend/assets/plugins/flot/source/jquery.canvaswrapper.js" type="9c13ede09614428406f7f52d-text/javascript"></script>
@@ -413,8 +381,8 @@
 <script src="{{ asset('/')}}backend/assets/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.js" type="9c13ede09614428406f7f52d-text/javascript"></script>
 <script src="{{ asset('/')}}backend/assets/js/demo/dashboard.js" type="9c13ede09614428406f7f52d-text/javascript"></script>
 
+{{--Sweet Alert--}}
 @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
-
 
 <script type="9c13ede09614428406f7f52d-text/javascript">
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -427,12 +395,7 @@
 
 </script>
 
-
-
 <script src="{{ asset('/')}}backend/assets/js/rocket-loader.min.js" data-cf-settings="9c13ede09614428406f7f52d-|49" defer=""></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194" integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw==" data-cf-beacon='{"rayId":"7145748af9cc78c1","version":"2021.12.0","r":1,"token":"4db8c6ef997743fda032d4f73cfeff63","si":100}' crossorigin="anonymous"></script>
 
-
 </body>
-
-
 </html>

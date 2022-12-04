@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\ForgetPasswordController;
+use App\Http\Controllers\Admin\SendingGmailController;
 
 
 // Admin Login & Logout Route
@@ -33,8 +34,12 @@ Route::prefix('admin')->middleware(['auth', 'prevent-back-history'])->group(func
     Route::get('/password/{id}',[ProfileController::class, 'passwordIndex'])->name('password');
     Route::post('/password/update/{id}',[ProfileController::class, 'passwordUpdate'])->name('password.update');
 
+    // Sending Gmail
+    Route::get('/email', [SendingGmailController::class, 'index'])->name('send.gmail');
+    Route::post('/email/store', [SendingGmailController::class, 'store'])->name('store.gmail');
+
 });
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('admin.send-gmail.body');
 });
