@@ -175,8 +175,78 @@
                         <div class="menu-text">Send Gmail</div>
                         <div class="menu-badge">{{ mail_count() }}</div>
                     </a>
-
                 </div>
+
+                <div class="menu-item has-sub {{ Request::routeIs('all.category', 'all.subcategory', 'all.sub.subcategory', 'all.selectbox', 'edit.selectbox') ? 'active' : '' }}">
+                    <a href="javascript:;" class="menu-link">
+                        <div class="menu-icon">
+                            <i class="fa fa-archive"></i>
+                        </div>
+                        <div class="menu-text">Dependent SelectBox</div>
+                        <div class="menu-caret"></div>
+                    </a>
+                    <div class="menu-submenu ">
+                        <div class="menu-item {{ Request::routeIs('all.category') ? 'active' : '' }}">
+                            <a href="{{ route('all.category') }}" class="menu-link ">
+                                <div class="menu-text">Category</div>
+                            </a>
+                        </div>
+                        <div class="menu-item {{ Request::routeIs('all.subcategory') ? 'active' : '' }} ">
+                            <a href="{{ route('all.subcategory') }}" class="menu-link">
+                                <div class="menu-text">Sub Category</div>
+                            </a>
+                        </div>
+                        <div class="menu-item {{ Request::routeIs('all.sub.subcategory') ? 'active' : '' }} ">
+                            <a href="{{ route('all.sub.subcategory') }}" class="menu-link">
+                                <div class="menu-text">Sub SubCategory</div>
+                            </a>
+                        </div>
+                        <div class="menu-item {{ Request::routeIs('all.selectbox', 'edit.selectbox') ? 'active' : '' }} ">
+                            <a href="{{ route('all.selectbox') }}" class="menu-link">
+                                <div class="menu-text">Multi Dependent Example</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item has-sub {{ Request::routeIs('yajra.datatable', 'yajra.datatable.button') ? 'active' : '' }}">
+                    <a href="javascript:;" class="menu-link">
+                        <div class="menu-icon">
+                            <i class="fa fa-table"></i>
+                        </div>
+                        <div class="menu-text">Yajra DataTable</div>
+                        <div class="menu-caret"></div>
+                    </a>
+                    <div class="menu-submenu ">
+                        <div class="menu-item {{ Request::routeIs('yajra.datatable') ? 'active' : '' }}">
+                            <a href="{{ route('yajra.datatable') }}" class="menu-link ">
+                                <div class="menu-text">Without button</div>
+                            </a>
+                        </div>
+                        <div class="menu-item {{ Request::routeIs('yajra.datatable.button') ? 'active' : '' }} ">
+                            <a href="{{ route('yajra.datatable.button') }}" class="menu-link">
+                                <div class="menu-text">With Button</div>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+
+
+
+                <div class="menu-item has-sub {{ Request::routeIs('all.multi') ? 'active' : '' }}">
+                    <a href="{{ route('all.multi') }}" class="menu-link">
+                        <div class="menu-icon">
+                            <i class="fa fa-picture-o"></i>
+                        </div>
+                        <div class="menu-text">Multiple Image Upload</div>
+                    </a>
+                </div>
+
+
                 <div class="menu-item">
                     <a href="widget.html" class="menu-link">
                         <div class="menu-icon">
@@ -303,27 +373,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="menu-item has-sub">
-                    <a href="javascript:;" class="menu-link">
-                        <div class="menu-icon">
-                            <i class="fa fa-envelope"></i>
-                        </div>
-                        <div class="menu-text">Email Template</div>
-                        <div class="menu-caret"></div>
-                    </a>
-                    <div class="menu-submenu">
-                        <div class="menu-item">
-                            <a href="email_system.html" class="menu-link">
-                                <div class="menu-text">System Template</div>
-                            </a>
-                        </div>
-                        <div class="menu-item">
-                            <a href="email_newsletter.html" class="menu-link">
-                                <div class="menu-text">Newsletter Template</div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+
 
 
                 <div class="menu-item d-flex">
@@ -353,6 +403,7 @@
 <script src="{{ asset('/')}}backend/assets/js/vendor.min.js" type="9c13ede09614428406f7f52d-text/javascript"></script>
 <script src="{{ asset('/')}}backend/assets/js/app.min.js" type="9c13ede09614428406f7f52d-text/javascript"></script>
 
+
 @yield('extra-js')
 
 {{--<script src="{{ asset('/')}}backend/assets/plugins/gritter/js/jquery.gritter.js" type="9c13ede09614428406f7f52d-text/javascript"></script>--}}
@@ -381,8 +432,37 @@
 <script src="{{ asset('/')}}backend/assets/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.js" type="9c13ede09614428406f7f52d-text/javascript"></script>
 <script src="{{ asset('/')}}backend/assets/js/demo/dashboard.js" type="9c13ede09614428406f7f52d-text/javascript"></script>
 
+
 {{--Sweet Alert--}}
 @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript">
+    $(document).on('click', '#delete', function(e){
+        e.preventDefault();
+        var link = $(this).attr("href");
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "This Record will be Permanently Deleted!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, Delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = link
+                // Swal.fire(
+                //     'Deleted!',
+                //     'Your Data has been deleted.',
+                //     'success'
+                // )
+            }
+        })
+
+    });
+
+</script>
+
 
 <script type="9c13ede09614428406f7f52d-text/javascript">
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

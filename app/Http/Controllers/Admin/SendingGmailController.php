@@ -45,11 +45,6 @@ class SendingGmailController extends Controller
             Alert::error($ex->getMessage());
             return redirect()->back();
         }
-
-
-
     }
-
-
 
 }

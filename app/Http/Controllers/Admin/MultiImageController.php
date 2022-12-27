@@ -4,10 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use RealRashid\SweetAlert\Facades\Alert;
 
-class AdminController extends Controller
+class MultiImageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,14 +14,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        if(Auth::check()){
-            return redirect()->route('dashboard');
-        }
-        else{
-            return view('admin.login.login');
-        }
-
-
+        return view('admin.multi-img.multi-img');
     }
 
     /**
@@ -42,29 +33,9 @@ class AdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function login(Request $request)
+    public function store(Request $request)
     {
-        $request->validate([
-            'email' => 'required|email:rfc,dns',
-            'password' => 'required',
-        ]);
-
-        $credentials = $request->only('email' , 'password');
-        if(Auth::attempt($credentials)){
-            Alert::success('Welcome!', 'Login Successfully..');
-            return redirect()->route('dashboard');
-        }
-        else{
-            Alert::warning('Login Failed!', 'Credentials Does not Matched..');
-            return redirect('/admin-login');
-        }
-
-    }
-
-    public function logout(Request $request){
-        Auth::logout();
-        Alert::success('Logout Successfully Done..');
-        return redirect()->route('admin.login');
+        //
     }
 
     /**

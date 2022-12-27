@@ -73,6 +73,7 @@
             placeholder: 'Write your Email Here..',
             tabsize: 2,
             height: 200,
+
         });
     });
 </script>
