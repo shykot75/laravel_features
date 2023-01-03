@@ -21,8 +21,6 @@
                     @endif
                 </div>
             </div>
-
-
         </div>
 
         <div class="row mb-15px">
@@ -75,12 +73,3 @@
             <button type="submit" class="btn btn-primary">Update</button>
         </div>
     </form>
-
-
-
-
-
-
-
-
-

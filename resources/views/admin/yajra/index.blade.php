@@ -2,7 +2,6 @@
 
 @section('title')
     Yajra Datatable | CRUD
-
 @endsection
 
 @section('extra-css')
@@ -17,7 +16,7 @@
     <link href="{{ asset('/')}}backend/assets/plugins/datatables.net-rowreorder-bs5/css/rowReorder.bootstrap5.min.css" rel="stylesheet" />
     <link href="{{ asset('/')}}backend/assets/plugins/datatables.net-select-bs5/css/select.bootstrap5.min.css" rel="stylesheet" />
 
-    <!--Data Table & Buttons required files [CDN] -->
+    <!--Data Table & Buttons required CSS files [CDN] -->
 {{--    <link href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css" rel="stylesheet">--}}
 
 {{--    <link href="https://cdn.datatables.net/buttons/2.3.3/css/buttons.bootstrap5.min.css" rel="stylesheet">--}}
@@ -106,7 +105,6 @@
         </tr>
         </thead>
         <tbody>
-
         </tbody>
     </table>
     </div>
@@ -143,7 +141,6 @@
 
 @endsection
 
-
 @section('extra-js')
     <script src="https://code.jquery.com/jquery-3.6.2.min.js" integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>
 
@@ -174,8 +171,7 @@
     <script src="{{ asset('/')}}backend/assets/plugins/pdfmake/build/vfs_fonts.js"></script>
     <script src="{{ asset('/')}}backend/assets/plugins/jszip/dist/jszip.min.js"></script>
 
-
-    <!--Data Table & Buttons required files [CDN] -->
+    <!--Data Table & Buttons required JS files [CDN] -->
 {{--    <script type="text/javascript" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>--}}
 {{--    <script type="text/javascript" src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>--}}
 
@@ -185,8 +181,7 @@
 {{--    <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.html5.min.js"></script>--}}
 {{--    <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.print.min.js"></script>--}}
 {{--    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>--}}
-{{--    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>   --}}
-
+{{--    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>--}}
 
     <script type="text/javascript">
         // YAJRA DATATABLE FUNCTIONALITY + BUTTON
@@ -218,7 +213,6 @@
             });
         });
 
-
         // EDIT FUNCTIONALITY STARTS
         $(document).on('click', '.edit', function(event){
             event.preventDefault();
@@ -239,7 +233,6 @@
             });
         });
         // EDIT FUNCTIONALITY ENDS
-
 
         // DELETE FUNCTIONALITY STARTS
         $(document).on('click', '.delete', function(event){
@@ -263,8 +256,5 @@
         // DELETE FUNCTIONALITY ENDS
 
     </script>
-
-
-
 
 @endsection

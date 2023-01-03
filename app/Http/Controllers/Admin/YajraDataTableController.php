@@ -59,7 +59,6 @@ class YajraDataTableController extends Controller
                     $constraint->aspectRatio();
                 })->save($destinationPath.'/'.$name);
                 $destinationPath = 'uploads/yajra-image/';
-
             }
             // IMAGE SECTION
 
@@ -83,7 +82,6 @@ class YajraDataTableController extends Controller
             Alert::error($e->getMessage());
             return redirect()->back();
         }
-
     }
 
     public function edit($id){
@@ -92,7 +90,6 @@ class YajraDataTableController extends Controller
 //            return $yajra;
             $view = View::make('admin.yajra.edit', compact('yajra'))->render();
             return response()->json(['html' => $view]);
-
     }
 
     public function update(Request $request, $id){
@@ -159,8 +156,4 @@ class YajraDataTableController extends Controller
         return redirect()->back();
     }
 
-
-//    public function button(YajraExampleDataTable $dataTable){
-//        return $dataTable->render('button');  // button.blade.php
-//    }
 }

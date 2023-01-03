@@ -168,7 +168,6 @@
                                 @endif
                             </div>
                         </div>
-
                     </div>
 
                     <div class="row mb-15px">
@@ -192,7 +191,6 @@
                                 @endif
                                 {{--                            <input name="tags[]" multiple="multiple"  required id="tags" class="js-example-basic-multiple form-control mb-5px" style="width: 100%; height:100% " />--}}
 
-
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -207,9 +205,7 @@
                                 @endif
                             </div>
                         </div>
-
                     </div>
-
                     <div class="row mb-15px">
                         <label class="form-label col-form-label "></label>
                         <div class="">
@@ -218,7 +214,6 @@
                     </div>
                 </form>
             @endif
-
         </div>
     </div>
 
@@ -257,14 +252,11 @@
                 </a></td>
         </tr>
         @endforeach
-
         </tbody>
     </table>
     </div>
 
-
 @endsection
-
 
 @section('extra-js')
     <script src="https://code.jquery.com/jquery-3.6.2.min.js" integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>
@@ -359,7 +351,7 @@
 
     </script>
 
-    <!-- SCRIPT FOR DATA TABLE -->
+    <!-- SCRIPT FOR DATA TABLE BUTTON FUNCTIONALITY -->
     <script>
         var options = {
             dom: '<"dataTables_wrapper dt-bootstrap"<"row"<"col-xl-7 d-block d-sm-flex d-xl-block justify-content-center"<"d-block d-lg-inline-flex me-0 me-md-3"l><"d-block d-lg-inline-flex"B>><"col-xl-5 d-flex d-xl-block justify-content-center"fr>>t<"row"<"col-md-5"i><"col-md-7"p>>>',

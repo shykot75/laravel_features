@@ -59,7 +59,7 @@ Route::prefix('admin')->middleware(['auth', 'prevent-back-history'])->group(func
         Route::post('/sub-sub-categories/store', [SubSubCategoryController::class, 'store'])->name('store.sub.subcategory');
         Route::get('/subcategory-by-category/{category_id}', [SubSubCategoryController::class, 'subcategoryFetch'])->name('subcategory.fetch');
 
-        // Sub SubCategory
+        // Multiple Dependent Selectbox Example
         Route::get('/example', [MultiDependentExample::class, 'index'])->name('all.selectbox');
         Route::post('/example/store', [MultiDependentExample::class, 'store'])->name('store.selectbox');
         Route::get('/example/edit/{id}', [MultiDependentExample::class, 'edit'])->name('edit.selectbox');
@@ -68,7 +68,7 @@ Route::prefix('admin')->middleware(['auth', 'prevent-back-history'])->group(func
         Route::get('/sub-subcategory-fetch/{subcategory_id}', [MultiDependentExample::class, 'subSubcategoryFetch'])->name('sub.subcategory.fetch');
     });
 
-    // YAJRA DATATABLE -- [WITHOUT BUTTON]
+    // YAJRA DATATABLE -- [BUTTON]
     Route::get('/yajra', [YajraDataTableController::class, 'index'])->name('yajra.datatable');
     Route::post('/yajra/store', [YajraDataTableController::class, 'store'])->name('store.yajra');
     Route::get('/yajra/edit/{id}', [YajraDataTableController::class, 'edit'])->name('edit.yajra');

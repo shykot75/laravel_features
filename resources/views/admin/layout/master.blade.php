@@ -220,14 +220,14 @@
                     <div class="menu-submenu ">
                         <div class="menu-item {{ Request::routeIs('yajra.datatable') ? 'active' : '' }}">
                             <a href="{{ route('yajra.datatable') }}" class="menu-link ">
-                                <div class="menu-text">Without button</div>
-                            </a>
-                        </div>
-                        <div class="menu-item {{ Request::routeIs('yajra.datatable.button') ? 'active' : '' }} ">
-                            <a href="{{ route('yajra.datatable.button') }}" class="menu-link">
                                 <div class="menu-text">With Button</div>
                             </a>
                         </div>
+{{--                        <div class="menu-item {{ Request::routeIs('yajra.datatable.button') ? 'active' : '' }} ">--}}
+{{--                            <a href="{{ route('yajra.datatable.button') }}" class="menu-link">--}}
+{{--                                <div class="menu-text">With Button</div>--}}
+{{--                            </a>--}}
+{{--                        </div>--}}
 
                     </div>
                 </div>
@@ -458,7 +458,6 @@
                 // )
             }
         })
-
     });
 
 </script>

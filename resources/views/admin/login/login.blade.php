@@ -85,7 +85,7 @@
                         <button type="submit" class="btn btn-outline-danger d-block w-100 h-45px btn-lg">Log In</button>
                     </div>
                     <div class="text-blue-500">
-                        <a href="">Forget Password?</a>
+{{--                        <a href="">Forget Password?</a>--}}
                     </div>
                 </form>
             </div>
